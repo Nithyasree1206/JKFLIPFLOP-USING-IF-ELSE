@@ -49,30 +49,32 @@ For different input combinations generate the timing diagram
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
-module lab7(j,k,clk,q,qbar);
-input j,k,clk;
-output reg q,qbar;
-initial 
-begin
-q=1'b0;
-q=1'b1;
-end 
-
-always @(posedge clk)
-begin 
-q<=(j&~q)|(~k&q);
-qbar<=~q;
-end
+module digital7(j,k,clk,rst,q);
+input j,k;
+input clk,rst;
+output q;
+reg q;
+always @(posedge clk or negedge rst)
+    if (~rst==0)
+	     q=1'b0;
+    else
+	 case({j,k})
+	 2'b00:q=q;
+	 2'b01:q=0;
+	 2'b10:q=1;
+	 2'b11:q=~q;
+endcase
 endmodule
+
 
 <img width="666" alt="jk tt" src="https://github.com/user-attachments/assets/bfc37bc3-cf46-46e8-b4c8-f6b6d853c01a">
 
 **RTL LOGIC FOR FLIPFLOPS**
-<img width="749" alt="JK LG" src="https://github.com/user-attachments/assets/a5829471-e96d-4fd0-81a3-6d0723224f4e">
 
+<img width="701" alt="jklg" src="https://github.com/user-attachments/assets/accbb5cd-0a76-4f32-ace9-616e30cd6551" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-<img width="959" alt="JK WF" src="https://github.com/user-attachments/assets/eaf87748-4030-4476-a7f1-ed531a4f8cf6">
+<img width="953" alt="jkwf" src="https://github.com/user-attachments/assets/07217066-68b4-475c-a7ca-f8e530615f8a" />
 
 **RESULTS**
 Therefore jk flipflops in always @ method using verilog and validating their functionally using their functional tables is verify.
