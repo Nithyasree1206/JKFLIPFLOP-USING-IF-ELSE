@@ -47,8 +47,11 @@ For different input combinations generate the timing diagram
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by:S.NITHYASREE 
+RegisterNumber:24900149
 */
+````
 module digital7(j,k,clk,rst,q);
 input j,k;
 input clk,rst;
@@ -66,7 +69,7 @@ always @(posedge clk or negedge rst)
 endcase
 endmodule
 
-
+````
 <img width="666" alt="jk tt" src="https://github.com/user-attachments/assets/bfc37bc3-cf46-46e8-b4c8-f6b6d853c01a">
 
 **RTL LOGIC FOR FLIPFLOPS**
